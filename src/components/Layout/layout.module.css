@@ -1,7 +1,31 @@
 .Layout {
-    background-image: url("../../assets/images/pyro-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 100% 100%;
-    min-height: 100vh;
+  background-image: url("../../assets/images/pyro-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  @apply h-full;
+}
+
+.container {
+  @apply w-full;
+}
+
+.content {
+  @apply ml-[80px];
+}
+
+.sidebar_overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
 }

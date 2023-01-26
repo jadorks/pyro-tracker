@@ -1,7 +1,13 @@
 .navbar {
-    @apply flex justify-between items-center py-6;
+    @apply flex justify-between items-center px-8 py-6 ml-[80px];
     @apply bg-[#202020];
+    z-index: 4;
 }
+
+.navbar__left {
+    @apply flex gap-4;
+}
+
 
 .token_price {
     @apply flex gap-2;

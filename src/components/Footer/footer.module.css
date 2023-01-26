@@ -4,7 +4,7 @@
 }
 
 .footer__content{
-    @apply flex flex-col items-center md:flex-row justify-between w-full px-4 xl:px-0;
+    @apply flex flex-col items-center md:flex-row justify-between w-full ml-[80px] px-4 xl:px-0;
     border-width: 1px 0 0px;
     border-style: solid;
     border-image: linear-gradient(90deg, #F9D207 0%, #F92032 78%, #F92032 100%) 1;
