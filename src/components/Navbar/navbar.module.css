@@ -1,0 +1,38 @@
+.navbar {
+    @apply flex justify-between items-center py-6;
+    @apply bg-[#202020];
+}
+
+.token_price {
+    @apply flex gap-2;
+}
+
+.token_price p {
+    @apply text-[#FA6C20] montserrat-med-15;
+}
+
+.connect_btn{
+    @apply rounded-3xl bg-red-500 px-10 py-2 text-white nexa-reg-18 uppercase;
+    background: linear-gradient(342.71deg, #F9D207 -93.29%, #F92032 64.35%, #F92032 108.81%);
+}
+
+.connect_btn_connected{
+    @apply relative rounded-3xl px-10 py-3 text-white nexa-reg-18 uppercase;
+    background: black;
+    z-index: 0;
+}
+
+.connect_btn_connected::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+    linear-gradient(98.95deg, #F9D207 2%, #F92032 100%, rgba(0, 0, 0, 0.53) 51.36%, #F92032 100%);
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+    @apply rounded-3xl p-[0.1rem];
+    z-index: -1;
+}
