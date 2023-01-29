@@ -1,5 +1,5 @@
 .navbar {
-    @apply flex justify-between items-center px-8 py-6 ml-[80px];
+    @apply flex justify-between items-center px-8 py-6 md:ml-[80px];
     @apply bg-[#202020];
     z-index: 4;
 }
