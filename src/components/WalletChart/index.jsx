@@ -9,14 +9,26 @@ import {
 } from "recharts";
 import { getRandomColour } from "@/utils/utils";
 
-function WalletChart() {
+function WalletChart({data}) {
   // convert each value to their dollar equivalent to get the value for charts
-  const data = [
+  const acD = [
     { name: "ETH", value: 200 },
     { name: "Pyro", value: 100 },
     { name: "Pyro", value: 399 },
     { name: "Pyro", value: 500 },
   ];
+
+  const pieData = () => {
+    const results = [];
+    const cleanData = data.filter((value) => value[1] != undefined);
+    cleanData.forEach((elem)=>{
+      const value = elem[1].priceUsd * elem[0].value;
+      if(!isNaN(value)){
+        results.push({name: elem[0].token.symbol, value})
+      }
+    })
+    return results;
+  }
 
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
@@ -49,15 +61,15 @@ function WalletChart() {
     <div className={style.container}>
       <div className={style.content}>
         <div className={style.info__body}>
-          <ResponsiveContainer width="100%" height={120}>
+          <ResponsiveContainer width="99%" height={120}>
             <PieChart width={120} height={120}>
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-                data={data}
+                data={pieData()}
                 cx={60}
-                cy={60}
-                outerRadius={40}
+                cy={55}
+                outerRadius={50}
               >
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={getRandomColour()} />

@@ -42,3 +42,8 @@
 .portfolio_table tr td{
     @apply py-4 px-4;
 }
+
+.token_symbol {
+    @apply bg-[#383838] text-[#5F5F5F] montserrat-med-14;
+    width: fit-content;
+}

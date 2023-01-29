@@ -6,7 +6,7 @@ import WalletInfo from "@/components/WalletInfo";
 import { useEvmWalletTokenBalances } from "@moralisweb3/next";
 import axios from "axios";
 import { EvmChain } from "moralis/common-evm-utils";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Portfolio() {
   const address = "0x3145Fbf82170A049c30Cbd2706e0714f47826cb8";
@@ -41,15 +41,17 @@ export default function Portfolio() {
     }
   }, [tokens]);
 
-  return false ? (
+  const memData = React.useMemo(() => tokenResults, [tokenResults]);
+
+  return true ? (
     <div className="w-full px-4 py-4 lg:px-10">
       {/* <PortfolioForm /> */}
       <div className="flex flex-col lg:flex-row pb-8 gap-10">
         <WalletInfo />
-        <WalletChart />
-        <BalanceInfo />
+        <WalletChart data={memData}/>
+        <BalanceInfo data={memData}/>
       </div>
-      <PortfolioTable />
+      <PortfolioTable data={memData} />
     </div>
   ) : (
     <div>
