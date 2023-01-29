@@ -1,0 +1,78 @@
+.container{
+    position: relative;
+    @apply flex flex-col items-start text-white bg-[#202020] px-8 py-8;
+    @apply rounded-2xl border-b-black border-b-8;
+    z-index: 0;
+}
+
+.container:before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:linear-gradient(90deg, #FBD407 0%, #FB2032 78%, #FB2032 100%); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+    @apply rounded-t-2xl pt-1;
+    z-index: -1;
+}
+
+.content{
+    @apply w-full;
+}
+
+.form__header{
+    @apply pb-4 flex justify-center;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-image: linear-gradient(90deg, #F9D207 0%, #F92032 78%, #F92032 100%) 1;
+}
+
+.form__body{
+    @apply py-6 flex flex-col items-center;
+}
+
+.form__balance {
+    @apply montserrat-med-14;
+}
+
+.form__body p:first-of-type {
+    @apply nexa-reg-25 text-[#FA6C20];
+}
+
+.form__body p {
+    @apply montserrat-med-14 text-[#807F7E];
+}
+
+.form__body h2 {
+    @apply nexa-reg-40
+}
+
+.form__input {
+    @apply mt-4 flex gap-4 w-full justify-center;
+}
+
+.form__input div input {
+    @apply rounded-lg py-3 pl-[.5rem] pr-10 bg-black w-full;
+    @apply nexa-reg-16 text-white;
+}
+
+.form__input div button {
+    @apply bg-[#F92032] rounded-lg ml-[-2.2rem] px-1;
+}
+
+.form__submit {
+    @apply rounded-lg px-4 border-b-2 border-r-2 border-b-black border-r-black;
+    @apply montserrat-med-15;
+}
+
+.form__submit:not(:disabled){
+
+    background: linear-gradient(90deg, #F9D207 0%, #F92032 78%, #F92032 100%);
+}
+
+.form__input button[disabled] {
+    @apply bg-[#4d4d4d];
+}

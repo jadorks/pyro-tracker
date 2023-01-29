@@ -1,0 +1,61 @@
+.container{
+    position: relative;
+    @apply flex flex-col items-start text-white bg-[#202020] py-8;
+    @apply rounded-2xl border-b-black border-b-8;
+    z-index: 0;
+}
+
+.container:before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:linear-gradient(90deg, #FBD407 0%, #FB2032 78%, #FB2032 100%); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+    @apply rounded-t-2xl pt-1;
+    z-index: -1;
+}
+
+.content{
+    @apply w-full;
+}
+
+.tracker__header{
+    @apply pb-4;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-image: linear-gradient(90deg, #F9D207 0%, #F92032 78%, #F92032 100%) 1;
+}
+
+.tracker__title{
+    @apply nexa-reg-20 uppercase text-white px-6;
+}
+
+.tracker__balance {
+    @apply montserrat-med-14;
+}
+
+.tracker__body {
+    @apply flex flex-col py-6;
+    overflow: scroll;
+    height: 300px;
+}
+
+.table__head tr td {
+    @apply nexa-reg-18;
+}
+
+.table tr {
+    @apply border-b-2 border-[#323131] ;
+}
+
+.table td{
+    @apply px-6 py-4;
+}
+
+.table__body td {
+    @apply nexa-reg-16 text-[#B8B8B8];
+}

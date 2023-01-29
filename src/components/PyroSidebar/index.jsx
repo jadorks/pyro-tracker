@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 export default function PyroSidebar() {
 
   const router = useRouter();
+  
 
   return (
     // on mobile, display a hamburger menu which allows for toggling the sidebar
@@ -19,6 +20,7 @@ export default function PyroSidebar() {
       }}
       backgroundColor="#202020"
       defaultCollapsed={true}
+      breakPoint={"sm"}
     >
       <div className="flex justify-center pt-4">
         <img src={PyroLogo.src} alt="" />

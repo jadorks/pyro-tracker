@@ -1,3 +1,8 @@
+import BalanceInfo from "@/components/BalanceInfo";
+import PortfolioForm from "@/components/PortfolioForm";
+import PortfolioTable from "@/components/PortfolioTable";
+import WalletChart from "@/components/WalletChart";
+import WalletInfo from "@/components/WalletInfo";
 import { useEvmWalletTokenBalances } from "@moralisweb3/next";
 import axios from "axios";
 import { EvmChain } from "moralis/common-evm-utils";
@@ -26,7 +31,7 @@ export default function Portfolio() {
             console.error(error);
             return undefined;
           });
-        const mergedData = [ tkn, data ];
+        const mergedData = [tkn, data];
         results.push(mergedData);
       }
       setTokenResults(results);
@@ -36,34 +41,19 @@ export default function Portfolio() {
     }
   }, [tokens]);
 
-  return (
+  return false ? (
+    <div className="w-full px-4 py-4 lg:px-10">
+      {/* <PortfolioForm /> */}
+      <div className="flex flex-col lg:flex-row pb-8 gap-10">
+        <WalletInfo />
+        <WalletChart />
+        <BalanceInfo />
+      </div>
+      <PortfolioTable />
+    </div>
+  ) : (
     <div>
-      <table>
-        <tr>
-          <th>Token Name</th>
-          <th>Price</th>
-          <th>Holdings</th>
-          <th>MarketCap</th>
-          <th>1h</th>
-          <th>6h</th>
-          <th>24h</th>
-          <th>Value</th>
-        </tr>
-        {tokenResults.map((tkn) => {            
-          return (
-            <tr>
-              <td>{tkn[0].token.name}</td>
-              <td>{tkn[1] ? tkn[1].priceUsd : "-"}</td>
-              <td>{tkn[0].value}</td>
-              <td>{tkn[1] ? tkn[1].fdv : "-"}</td>
-              <td>{tkn[1] ? tkn[1].priceChange.h1 : "-"}</td>
-              <td>{tkn[1] ? tkn[1].priceChange.h6 : "-"}</td>
-              <td>{tkn[1] ? tkn[1].priceChange.h24 : "-"}</td>
-              <td>{tkn[1] ? Number(tkn[1].priceUsd) * Number(tkn[0].value) : "-"}</td>
-            </tr>
-          );
-        })}
-      </table>
+      <PortfolioForm />
     </div>
   );
 }

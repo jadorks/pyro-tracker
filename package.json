@@ -13,12 +13,15 @@
     "@moralisweb3/next": "^2.12.0",
     "@next/font": "13.1.5",
     "axios": "^1.2.4",
+    "date-fns": "^2.29.3",
     "moralis": "^2.12.0",
     "next": "13.1.5",
     "next-auth": "^4.18.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-pro-sidebar": "^1.0.0"
+    "react-pro-sidebar": "^1.0.0",
+    "react-table": "^7.8.0",
+    "recharts": "^2.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

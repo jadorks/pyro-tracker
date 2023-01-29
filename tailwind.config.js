@@ -93,6 +93,10 @@ module.exports = {
           fontFamily: theme("fontFamily.nexa_reg"),
           fontSize: "25px",
         },
+        ".nexa-reg-40": {
+          fontFamily: theme("fontFamily.nexa_reg"),
+          fontSize: "40px",
+        },
       };
 
       addUtilities(pyroTypography, ["responsive"]);

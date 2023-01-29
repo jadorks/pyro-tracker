@@ -1,0 +1,77 @@
+.container{
+    position: relative;
+    @apply flex flex-col items-start bg-[#202020] text-white w-full py-4 h-[10rem];
+    @apply rounded-2xl border-b-black border-b-8;
+    z-index:0;
+}
+
+.container:before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:linear-gradient(90deg, #FBD407 0%, #FB2032 78%, #FB2032 100%); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+    @apply rounded-t-2xl pt-1;
+    z-index: -1;
+}
+
+.content{
+    @apply w-full px-8;
+}
+
+.info__header{
+    @apply flex justify-between items-center;
+}
+
+.info__header h2{
+    @apply montserrat-bold-25 text-white;
+}
+
+.info__header img{
+    @apply h-auto w-8;
+}
+
+.info__body {
+    @apply flex gap-2 pt-2 items-center;
+}
+
+.wallet_address {
+    @apply bg-black text-white flex rounded px-2 py-1 gap-2;
+}
+
+.wallet_address p {
+    @apply montserrat-med-15;
+}
+
+.wallet_address img {
+    width: 14px;
+}
+
+.info__value p{
+    @apply montserrat-bold-25;
+}
+
+.info__footer{
+    @apply flex gap-4 items-center pt-4;
+    @apply montserrat-med-12 text-[#B7B7B7];
+}
+
+.footer_actions {
+    @apply flex gap-2 items-center;
+}
+
+.usdt_value button{
+    position: relative;
+    @apply flex gap-1 rounded-3xl text-white px-2;
+    z-index: 0;
+    background: #F92032;
+}
+
+.usdt_value button[disabled]{
+    @apply bg-black border-[#4D4D4D] border-2;
+    @apply opacity-90 text-[#4D4D4D];
+}

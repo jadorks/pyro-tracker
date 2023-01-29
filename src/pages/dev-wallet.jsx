@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import WalletChecker from "@/components/WalletChecker";
 
 export default function DevWallet() {
   const [devTransactions, setDevTransactions] = useState([]);
@@ -22,31 +23,8 @@ export default function DevWallet() {
   }, []);
 
   return (
-    <div>
-      Dev Wallet
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Function</th>
-            <th>Date</th>
-            <th>Etherscan</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {devTransactions.map((devTx, index) => {
-            return (
-              <tr key={index}>
-                <td>{devTx.isError == "1" ? "Fail" : "Pass"}</td>
-                <td>{devTx.functionName.split("(")[0]}</td>
-                <td>{devTx.timeStamp}</td>
-                <td><a href={`https://etherscan.io/tx/${devTx.hash}`} target="_blank" rel="noopener noreferrer">Etherscan</a></td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className="w-full lg:max-w-3xl">
+      <WalletChecker walletTransactions={devTransactions} />
     </div>
   );
 }

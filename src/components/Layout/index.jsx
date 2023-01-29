@@ -14,9 +14,16 @@ export default function Layout({ children }) {
       <div className={style.Layout}>
         <Navbar />
         <PyroSidebar />
-        <main>
-          {!collapsed && <div onClick={()=>{collapseSidebar()}} className={style.sidebar_overlay}></div>}
-          <div className={style.content}>{children}</div>
+        <main className={style.content}>
+          {!collapsed && (
+            <div
+              onClick={() => {
+                collapseSidebar();
+              }}
+              className={style.sidebar_overlay}
+            ></div>
+          )}
+          {children}
         </main>
         <Footer />
       </div>
