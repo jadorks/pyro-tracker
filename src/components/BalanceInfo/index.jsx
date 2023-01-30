@@ -34,7 +34,7 @@ function BalanceInfo({ data }) {
         <div className={style.info__footer}>
           <div className={style.footer_action}>
             <img src={DeleteIcon.src} className="w-[18px]" alt="" />
-            <p>Hide small balances</p>
+            <p>View NFTs</p>
           </div>
         </div>
       </div>

@@ -8,54 +8,30 @@ import {
   Cell,
 } from "recharts";
 import { getRandomColour } from "@/utils/utils";
+import React from "react";
 
-function WalletChart({data}) {
+function WalletChart({ data }) {
   // convert each value to their dollar equivalent to get the value for charts
-  const acD = [
-    { name: "ETH", value: 200 },
-    { name: "Pyro", value: 100 },
-    { name: "Pyro", value: 399 },
-    { name: "Pyro", value: 500 },
-  ];
 
   const pieData = () => {
     const results = [];
     const cleanData = data.filter((value) => value[1] != undefined);
-    cleanData.forEach((elem)=>{
+    cleanData.forEach((elem) => {
       const value = elem[1].priceUsd * elem[0].value;
-      if(!isNaN(value)){
-        results.push({name: elem[0].token.symbol, value})
+      if (!isNaN(value)) {
+        results.push({ name: elem[0].token.symbol, value: value });
       }
-    })
+    });
     return results;
-  }
-
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    percent,
-    index,
-  }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="white"
-        textAnchor={x > cx ? "start" : "end"}
-        dominantBaseline="central"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
   };
+
+  const getFillColors = React.useMemo(() => {
+    let results = [];
+    for (let index = 0; index < pieData().length; index++) {
+      results.push(getRandomColour());
+    }
+    return results;
+  }, []);
 
   return (
     <div className={style.container}>
@@ -72,7 +48,7 @@ function WalletChart({data}) {
                 outerRadius={50}
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={getRandomColour()} />
+                  <Cell key={`cell-${index}`} fill={getFillColors[index]} />
                 ))}
               </Pie>
               <Tooltip />

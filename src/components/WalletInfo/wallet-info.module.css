@@ -36,15 +36,18 @@
 }
 
 .info__body {
-    @apply flex gap-2 pt-2 items-center;
+    @apply flex gap-2 pt-2 items-center w-full;
 }
 
 .wallet_address {
-    @apply bg-black text-white flex rounded px-2 py-1 gap-2;
+    @apply bg-black text-white flex rounded px-2 py-1 gap-2 overflow-hidden;
+
 }
 
 .wallet_address p {
-    @apply montserrat-med-15;
+    @apply montserrat-med-15 ;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wallet_address img {
@@ -61,7 +64,7 @@
 }
 
 .footer_actions {
-    @apply flex gap-2 items-center;
+    @apply flex gap-2 items-center cursor-pointer;
 }
 
 .usdt_value button{

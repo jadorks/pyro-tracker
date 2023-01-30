@@ -4,9 +4,11 @@ import WalletChecker from "@/components/WalletChecker";
 
 export default function DevWallet() {
   const [devTransactions, setDevTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchDevWallet() {
+      setIsLoading(true);
       const data = await axios
         .get("/api/dev-wallet")
         .then((response) => {
@@ -17,6 +19,7 @@ export default function DevWallet() {
           return [];
         });
       setDevTransactions(data);
+      setIsLoading(false);
     }
 
     fetchDevWallet();
@@ -24,7 +27,10 @@ export default function DevWallet() {
 
   return (
     <div className="w-full lg:max-w-3xl">
-      <WalletChecker walletTransactions={devTransactions} />
+      <WalletChecker
+        walletTransactions={devTransactions}
+        isLoading={isLoading}
+      />
     </div>
   );
 }

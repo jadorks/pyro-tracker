@@ -5,12 +5,16 @@
 }
 
 .navbar__left {
-    @apply flex gap-4;
+    @apply hidden md:flex gap-4 items-center;
+}
+
+.navbar__right {
+    @apply hidden md:block;
 }
 
 
 .token_price {
-    @apply flex gap-2;
+    @apply flex gap-2 items-center;
 }
 
 .token_price p {
@@ -41,4 +45,12 @@
             mask-composite: exclude; 
     @apply rounded-3xl p-[0.1rem];
     z-index: -1;
+}
+
+.mobile__left {
+    @apply md:hidden flex items-center gap-4;
+}
+
+.mobile__right {
+    @apply md:hidden;
 }

@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./portfolio-form.module.css";
 import PyroFullLogo from "@/assets/images/pyro-logo.svg";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { EyeIcon } from "@heroicons/react/20/solid";
+import { ethers } from "ethers";
 
-function PortfolioForm() {
+function PortfolioForm({ onSubmit, setAddress, address }) {
+  const [isValidAddress, setIsValidAddress] = useState(false);
+
+  function handleInputChange(e) {
+    const value = e.target.value;
+    setAddress(value);
+    const meetsLimit = value.length === 42;
+    const isAddress = ethers.utils.isAddress(value);
+
+    if (meetsLimit && isAddress) {
+      setIsValidAddress(true);
+    }
+
+    if (!isAddress) {
+      setIsValidAddress(false);
+    }
+  }
+
   return (
     <div className={style.container}>
       <div className={style.content}>
@@ -15,14 +31,27 @@ function PortfolioForm() {
           <p>Track your Portfolio</p>
           <h2>ETH Portfolio Tracker</h2>
           <p>
-            The most successulf portfolio management tool on the Ethereum Chain
+            The most successful portfolio management tool on the Ethereum Chain
           </p>
           <div className={style.form__input}>
             <div className="w-full">
-              <input type="text" placeholder="Enter a wallet address" />
+              <input
+                type="text"
+                placeholder="Enter a wallet address"
+                value={address}
+                onChange={(e) => handleInputChange(e)}
+              />
               <button>Me</button>
             </div>
-            <button className={style.form__submit}>Next</button>
+            <button
+              onClick={() => {
+                onSubmit(address);
+              }}
+              disabled={!isValidAddress}
+              className={style.form__submit}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
