@@ -12,7 +12,7 @@ export default function Layout({ children }) {
     <>
       <Head>
         <title>
-          Pyromatic - Bringing a Whole New Meaning to HYPER Deflationary Tokens
+          Pyromatic | Tracker
         </title>
         <meta
           key="description"
@@ -50,7 +50,7 @@ export default function Layout({ children }) {
         <meta
           key="twitter:title"
           name="twitter:title"
-          content="Pyromatic | Bringing a Whole New Meaning to HYPER Deflationary Tokens"
+          content="Pyromatic | Tracker"
         />
         <meta
           key="twitter:url"
@@ -68,11 +68,11 @@ export default function Layout({ children }) {
           content="https://tracker.pyrodapp.com/banner.png"
         />
         <meta key="og:type" property="og:type" content="website" />
-        <meta key="og:site_name" property="og:site_name" content="Pyromatic" />
+        <meta key="og:site_name" property="og:site_name" content="Pyromatic | Tracker" />
         <meta
           key="og:title"
           property="og:title"
-          content="Pyromatic - Bringing a Whole New Meaning to HYPER Deflationary Tokens"
+          content="Pyromatic | Tracker"
         />
         <meta key="og:url" property="og:url" content="https://tracker.pyrodapp.com" />
         <meta
