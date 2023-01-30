@@ -55,10 +55,10 @@ function WalletChart({ data }) {
         x={x}
         y={y}
         fill="white"
-        textAnchor={x > cx ? "start" : "end"}
+        textAnchor="middle"
         dominantBaseline="central"
       >
-        {`${(percent * 100).toFixed(0)}%`}
+        {percent > 0.1 ? `${(percent * 100).toFixed(0)}%` : ""}
       </text>
     );
   };
@@ -84,7 +84,7 @@ function WalletChart({ data }) {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend layout="vertical" verticalAlign="top" align="right"/>
+              <Legend layout="vertical" verticalAlign="top" align="right" />
             </PieChart>
           </ResponsiveContainer>
         </div>

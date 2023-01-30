@@ -192,10 +192,6 @@ function PortfolioTable({ data, walletAddress, isNFTView }) {
                       if (index == 0) {
                         return (
                           <td {...cell.getCellProps()}>
-                            <img
-                              src={data?.[superIndex][0].token.logo}
-                              alt=""
-                            />
                             {cell.render("Cell")}{" "}
                             <div className={style.token_symbol}>
                               {data?.[superIndex][0].token.symbol}
