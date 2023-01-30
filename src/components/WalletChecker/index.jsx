@@ -10,6 +10,7 @@ function WalletChecker({ walletTransactions, isLoading }) {
       <div className={style.content}>
         <div className={style.tracker__header}>
           <p className={style.tracker__title}>Dev Wallet Checker</p>
+          <p className="inter-reg-10">Powered by Etherscan.io APIs</p>
         </div>
         <div className={style.tracker__body}>
           {!isLoading ? (

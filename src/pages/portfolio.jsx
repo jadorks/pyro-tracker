@@ -18,11 +18,11 @@ export default function Portfolio() {
   const [tokenResults, setTokenResults] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [nativeBalance, setNativeBalance] = useState(0);
+  const [nftView, setNftView] = useState(false);
 
   const { fetch, isFetching } = useEvmWalletTokenBalances();
 
-  const { fetch: nativeFetch, isFetching: nativeIsFetching } =
-    useEvmNativeBalance();
+  const { fetch: nativeFetch } = useEvmNativeBalance();
 
   const fetchTokenBalances = async (address) => {
     const response = await fetch({ address, chain: "0x1" });
@@ -73,9 +73,12 @@ export default function Portfolio() {
           console.error(error);
           return undefined;
         });
-      const mergedNativeData = [{ ...WETH, value: nativeBalance.balance.ether }, nativeData];
-      console.log(mergedNativeData);
+      const mergedNativeData = [
+        { ...WETH, value: nativeBalance.balance.ether },
+        nativeData,
+      ];
       results.push(mergedNativeData);
+
       setTokenResults(results);
       setIsLoading(false);
     }
@@ -86,26 +89,36 @@ export default function Portfolio() {
 
   const memData = React.useMemo(() => tokenResults, [tokenResults]);
 
+  const toggleNFTView = () => {
+    setNftView(!nftView);
+  };
+
   return isFetching || isLoading ? (
     <div>
       <img src={Spinner.src} alt="" />
     </div>
   ) : tokenResults != undefined ? (
     <div className="w-full px-4 py-4 lg:px-10">
-      <div className="flex flex-col lg:flex-row pb-8 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 pb-8 gap-10">
         <WalletInfo walletAddress={walletAddress} />
         <WalletChart data={memData} />
-        <BalanceInfo data={memData} />
+        <BalanceInfo
+          data={memData}
+          toggleNFT={toggleNFTView}
+          isNFTView={nftView}
+        />
       </div>
-      <PortfolioTable data={memData} />
+      <PortfolioTable data={memData} isNFTView={nftView} />
     </div>
   ) : (
     <div>
-      <PortfolioForm
-        onSubmit={fetchTokenBalances}
-        setAddress={setWalletAddress}
-        address={walletAddress}
-      />
+      <div className="px-4 pt-4 lg:px-10">
+        <PortfolioForm
+          onSubmit={fetchTokenBalances}
+          setAddress={setWalletAddress}
+          address={walletAddress}
+        />
+      </div>
     </div>
   );
 }

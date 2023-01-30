@@ -26,7 +26,7 @@ export default function DevWallet() {
   }, []);
 
   return (
-    <div className="w-full lg:max-w-3xl">
+    <div className="w-full px-4 pt-6 lg:max-w-3xl">
       <WalletChecker
         walletTransactions={devTransactions}
         isLoading={isLoading}

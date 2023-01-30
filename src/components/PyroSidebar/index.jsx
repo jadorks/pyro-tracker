@@ -20,7 +20,7 @@ export default function PyroSidebar() {
       }}
       backgroundColor="#202020"
       defaultCollapsed={true}
-      breakPoint={"md"}
+      customBreakPoint={"767px"}
     >
       <div className="flex justify-center pt-4">
         <img src={PyroLogo.src} alt="" />

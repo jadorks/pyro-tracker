@@ -23,6 +23,14 @@ function WalletInfo({ walletAddress }) {
     router.reload();
   };
 
+  const confirmDelete = () => {
+    if (
+      confirm("Are you sure you want to remove the current wallet?") == true
+    ) {
+      deleteWallet();
+    }
+  };
+
   const ConfirmDeleteModal = () => {
     return (
       <Transition appear show={isDialogOpen} as={Fragment}>
@@ -115,7 +123,7 @@ function WalletInfo({ walletAddress }) {
           </div>
           <div>
             <a
-              href={`https://etherscan.io/address/${walletAddress}`}
+              href={`https://etherscan.io/address/${address}`}
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -127,7 +135,7 @@ function WalletInfo({ walletAddress }) {
           <div
             className={style.footer_actions}
             onClick={() => {
-              setIsDialogOpen(true);
+              confirmDelete();
             }}
           >
             <img src={DeleteIcon.src} className="w-[18px]" alt="" />
@@ -149,7 +157,6 @@ function WalletInfo({ walletAddress }) {
           </CopyToClipboard>
         </div>
       </div>
-      <ConfirmDeleteModal />
     </div>
   );
 }

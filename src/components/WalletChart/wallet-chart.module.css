@@ -1,8 +1,9 @@
 .container{
     position: relative;
-    @apply flex flex-col items-start bg-[#202020] text-white w-full py-4 h-[10rem];
+    @apply flex flex-col items-start bg-[#202020] text-white min-w-0 w-full py-4 h-[10rem];
     @apply rounded-2xl border-b-black border-b-8;
     z-index:0;
+    flex:1;
 }
 
 .container:before{

@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@headlessui/react": "^1.7.8",
     "@heroicons/react": "^2.0.14",
     "@moralisweb3/next": "^2.12.0",
+    "@mui/material": "^5.11.6",
     "@next/font": "13.1.5",
+    "@usedapp/core": "^1.2.2",
+    "@usedapp/wallet-connect-connector": "^1.0.1",
     "axios": "^1.2.4",
     "date-fns": "^2.29.3",
     "ethers": "^5.7.2",
@@ -22,6 +27,7 @@
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
+    "react-image-gallery": "^1.2.11",
     "react-pro-sidebar": "^1.0.0",
     "react-table": "^7.8.0",
     "recharts": "^2.3.2"

@@ -1,9 +1,10 @@
 import style from "./balance-info.module.css";
 import EthereumLogo from "@/assets/images/ethereum.svg";
 import DeleteIcon from "@/assets/images/trash.svg";
-import { useEvmTokenPrice } from "@moralisweb3/next";
+import { usePyroDapp } from "@/providers/PyroProvider/PyroDappProvider";
+import { ArrowsRightLeftIcon } from "@heroicons/react/20/solid";
 
-function BalanceInfo({ data }) {
+function BalanceInfo({ data, toggleNFT, isNFTView }) {
   const walletBalanceUSD = () => {
     let total = 0;
     const cleanData = data.filter((value) => value[1] != undefined);
@@ -16,10 +17,9 @@ function BalanceInfo({ data }) {
     return total.toFixed(2);
   };
 
-  const { data: priceData } = useEvmTokenPrice({
-    address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-    chain: "0x1",
-  });
+  const { ethPrice } = usePyroDapp();
+
+  const ethValue = (walletBalanceUSD() / ethPrice?.usdPrice).toFixed(5);
 
   return (
     <div className={style.container}>
@@ -29,12 +29,15 @@ function BalanceInfo({ data }) {
         </div>
         <div className={style.info__body}>
           <img src={EthereumLogo.src} alt="" />
-          <p>{(walletBalanceUSD() / priceData?.usdPrice).toFixed(5)} ETH</p>
+          <p>{!isNaN(ethValue) ? ethValue : "-"} ETH</p>
         </div>
         <div className={style.info__footer}>
-          <div className={style.footer_action}>
-            <img src={DeleteIcon.src} className="w-[18px]" alt="" />
-            <p>View NFTs</p>
+          <div
+            className={`${style.footer_action} cursor-pointer`}
+            onClick={toggleNFT}
+          >
+            <ArrowsRightLeftIcon className="w-5"/>
+            <p>{isNFTView ? "View Tokens" : "View NFTs"}</p>
           </div>
         </div>
       </div>

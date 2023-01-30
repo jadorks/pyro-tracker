@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./portfolio-form.module.css";
 import PyroFullLogo from "@/assets/images/pyro-logo.svg";
 import { ethers } from "ethers";
+import { useEthers } from "@usedapp/core";
 
 function PortfolioForm({ onSubmit, setAddress, address }) {
   const [isValidAddress, setIsValidAddress] = useState(false);
+
+  const { account } = useEthers();
 
   function handleInputChange(e) {
     const value = e.target.value;
@@ -41,7 +44,15 @@ function PortfolioForm({ onSubmit, setAddress, address }) {
                 value={address}
                 onChange={(e) => handleInputChange(e)}
               />
-              <button>Me</button>
+              <button
+                onClick={() => {
+                  setAddress(account);
+                  setIsValidAddress(true);
+                }}
+                disabled={account == undefined}
+              >
+                Me
+              </button>
             </div>
             <button
               onClick={() => {

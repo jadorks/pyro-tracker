@@ -24,14 +24,14 @@
 }
 
 .tracker__header{
-    @apply pb-4;
+    @apply px-6 pb-4;
     border-width: 0 0 1px;
     border-style: solid;
     border-image: linear-gradient(90deg, #F9D207 0%, #F92032 78%, #F92032 100%) 1;
 }
 
 .tracker__title{
-    @apply nexa-reg-20 uppercase text-white px-6;
+    @apply nexa-reg-20 uppercase text-white ;
 }
 
 .tracker__balance {
