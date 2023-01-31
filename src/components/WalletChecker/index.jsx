@@ -44,7 +44,7 @@ function WalletChecker({ walletTransactions, isLoading }) {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <EyeIcon />
+                              <EyeIcon className="w-6"/>
                             </a>
                           </td>
                         </tr>
