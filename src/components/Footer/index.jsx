@@ -14,7 +14,7 @@ const Footer = () => {
     <div className={style.footer__container}>
       <div className={style.footer__content}>
         <div className={style.footer__left}>
-          <h3>Pyro Matic 2022 All rights reserved.</h3>
+          <h3>Pyro Matic &copy;{new Date().getFullYear()}. All rights reserved.</h3>
           <p>Powered by Pyro</p>
         </div>
         <div className={style.footer__right}>
