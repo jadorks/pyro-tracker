@@ -86,7 +86,7 @@ function WalletChart({ data }) {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend layout="vertical" verticalAlign="top" align="right" />
+              {/* <Legend layout="vertical" verticalAlign="top" align="right" /> */}
             </PieChart>
           </ResponsiveContainer>
         </div>

@@ -129,6 +129,7 @@ function PortfolioTable({ data, walletAddress, isNFTView }) {
               display: "flex",
               flexDirection: "column",
             },
+            paddingTop: "2rem"
           }}
         >
           {nftData.map((item, index) => (
