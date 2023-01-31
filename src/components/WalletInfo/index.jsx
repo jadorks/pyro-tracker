@@ -139,7 +139,7 @@ function WalletInfo({ walletAddress }) {
             }}
           >
             <img src={DeleteIcon.src} className="w-[18px]" alt="" />
-            <p>Remove Wallet</p>
+            <p className="text-red-600">Remove Wallet</p>
           </div>
           <CopyToClipboard
             text={address}

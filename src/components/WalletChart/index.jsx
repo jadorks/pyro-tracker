@@ -58,7 +58,9 @@ function WalletChart({ data }) {
         textAnchor="middle"
         dominantBaseline="central"
       >
-        {percent > 0.1 ? `${(percent * 100).toFixed(0)}%` : ""}
+        {(percent * 100).toFixed(0) > 10
+          ? `${(percent * 100).toFixed(0)}%`
+          : ""}
       </text>
     );
   };

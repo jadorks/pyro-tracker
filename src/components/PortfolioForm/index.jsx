@@ -44,7 +44,7 @@ function PortfolioForm({ onSubmit, setAddress, address }) {
                 value={address}
                 onChange={(e) => handleInputChange(e)}
               />
-              <button
+              {account && <button
                 onClick={() => {
                   setAddress(account);
                   setIsValidAddress(true);
@@ -52,7 +52,7 @@ function PortfolioForm({ onSubmit, setAddress, address }) {
                 disabled={account == undefined}
               >
                 Me
-              </button>
+              </button>}
             </div>
             <button
               onClick={() => {

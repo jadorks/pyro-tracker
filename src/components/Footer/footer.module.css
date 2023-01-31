@@ -1,6 +1,7 @@
 .footer__container{
     margin-top: auto;
     @apply flex justify-center items-center w-full xl:px-32 py-4;
+    z-index: 3;
 }
 
 .footer__content{
